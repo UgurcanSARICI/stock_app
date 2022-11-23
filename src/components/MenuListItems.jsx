@@ -49,13 +49,12 @@ const icons = [
     url: "https://13640.fullstack.clarusway.com/admin",
   },
 ];
+
 const iconStyle = {
   color: "#eee",
-  "& .MuiSvgIcon-root": {
-    color: "#eee",
-  },
-  "&:hover": { color: "#f00" },
-  "&:hover .MuiSvgIcon-root": { color: "#f00" },
+  "& .MuiSvgIcon-root": { color: "#eee" },
+  "&:hover": { color: "red" },
+  "&:hover .MuiSvgIcon-root": { color: "red" },
 };
 
 const MenuListItems = () => {
