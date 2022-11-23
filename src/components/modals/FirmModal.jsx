@@ -30,7 +30,10 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
     <div>
       <Modal
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={() => {
+          setOpen(false);
+          setInfo({});
+        }}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -44,6 +47,7 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
               variant="outlined"
               value={info?.name || ""}
               onChange={handleChange}
+              required
             />
 
             <TextField
@@ -54,6 +58,7 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
               variant="outlined"
               value={info?.phone || ""}
               onChange={handleChange}
+              required
             />
 
             <TextField
@@ -64,6 +69,7 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
               variant="outlined"
               value={info?.address || ""}
               onChange={handleChange}
+              required
             />
 
             <TextField
@@ -74,6 +80,7 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
               variant="outlined"
               value={info?.image || ""}
               onChange={handleChange}
+              required
             />
             <Button type="submit" variant="contained" size="large">
               Submit Firm
