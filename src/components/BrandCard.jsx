@@ -34,7 +34,7 @@ const BrandCard = ({ brand, setOpen, setInfo }) => {
         alt="brand-img"
       />
 
-      <CardActions sx={flexColumn}>
+      <CardActions sx={flexCenter}>
         <EditIcon
           sx={btnHoverStyle}
           onClick={() => {
