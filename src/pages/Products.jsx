@@ -18,8 +18,16 @@ import { useSelector } from "react-redux";
 import { arrowStyle, btnHoverStyle, flexCenter } from "../styles/globalStyle";
 import useSortColumn from "../hooks/useSortColumn";
 import { MultiSelectBox, MultiSelectBoxItem } from "@tremor/react";
+import ProductModal from "../components/modals/ProductModal";
+
 const Products = () => {
-  const { getBrands, getCategories, getProducts } = useStockCalls();
+  const {
+    // getBrands,
+    // getCategories,
+    // getProducts,
+    deleteProduct,
+    getProCatBrands,
+  } = useStockCalls();
   const { products, brands } = useSelector((state) => state.stock);
   const [open, setOpen] = useState(false);
   const [info, setInfo] = useState({});
@@ -27,9 +35,10 @@ const Products = () => {
   const [selectedProducts, setSelectedProducts] = useState([]);
 
   useEffect(() => {
-    getBrands();
-    getCategories();
-    getProducts();
+    // getBrands();
+    // getCategories();
+    // getProducts();
+    getProCatBrands();
   }, []);
 
   const columnObj = {
@@ -94,7 +103,6 @@ const Products = () => {
   //       })
   //   );
   // };
-  console.log(selectedBrands);
 
   return (
     <Box>
@@ -128,8 +136,12 @@ const Products = () => {
         </MultiSelectBox>
       </Box>
 
-      {/*
-      <ProductModal open={open} setOpen={setOpen} info={info} setInfo={setInfo} /> */}
+      <ProductModal
+        open={open}
+        setOpen={setOpen}
+        info={info}
+        setInfo={setInfo}
+      />
 
       {sortedData?.length > 0 && (
         <TableContainer component={Paper} sx={{ mt: 3 }} elevation={10}>
@@ -187,7 +199,10 @@ const Products = () => {
                     <TableCell align="center">{product.brand}</TableCell>
                     <TableCell align="center">{product.name}</TableCell>
                     <TableCell align="center">{product.stock}</TableCell>
-                    <TableCell align="center">
+                    <TableCell
+                      align="center"
+                      onClick={() => deleteProduct(product.id)}
+                    >
                       <DeleteIcon sx={btnHoverStyle} />
                     </TableCell>
                   </TableRow>
