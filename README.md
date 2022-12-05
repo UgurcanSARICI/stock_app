@@ -65,7 +65,7 @@ Stock App (folder)
 
 ## Screenshot
 <p align="center">
-<a href="https://stock-app-us.vercel.app/"><img src=".gif" alt="gif"></a>
+<a href="https://stock-app-us.vercel.app/"><img src="stock.gif" alt="gif"></a>
 </p>
 
 
